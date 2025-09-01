@@ -1,5 +1,5 @@
 # Gemini Chat Frontend
-![Gemini Logo](src/assets/ai.png)
+![Gemini Logo](src/assets/cheetah.png)
 
 A React-based frontend for interacting with the Gemini AI API.  
 This project allows users to send prompts and receive formatted AI-generated responses.
