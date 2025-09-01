@@ -1,8 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import * as Style from "./Main.module.css";
 import { Context } from "../../context/Context";
-import starIcon from "../../assets/download.png";
+import starIcon from "../../assets/cheetahface.png";
 import { ModeContext } from "../../context/ModeContext";
+import Searchbar from "../Searchbar/Searchbar";
+import Loader from "../Loader/Loader";
+import Cards from "../Cards/Cards";
 
 export default function Main() {
   const { chatArr, onSent, setInput, input } = useContext(Context);
@@ -12,12 +15,12 @@ export default function Main() {
   return (
     <div className={`${Style.main}`}>
       <div className={`${Style.nav}`}>
-        <p>Hello</p>
+        <p>Hello!</p>
         <i className="fa-solid fa-circle-user"></i>
       </div>
 
-      
-  {/* <p onClick={() => setDarkMode((prev) => !prev)}>
+
+      {/* <p onClick={() => setDarkMode((prev) => !prev)}>
     {darkMode ? <i className="fa-regular fa-sun"></i> : <i className="fa-regular fa-moon"></i>}
   </p> */}
 
@@ -26,32 +29,11 @@ export default function Main() {
           <>
             <div className={`${Style.great}`}>
               <p><span>Hi, There</span></p>
-              <p>How i can help you today</p>
+              <p>How can I help you today?</p>
             </div>
 
-            <div className={`${Style.cards}`}>
-              <div onClick={(e) => setInput(e.target.innerText)}
-              className={`${Style.card}`}>
-                <p>Suggest beautiful places to see on an upcoming road trip</p>
-                <i className="fa-regular fa-compass"></i>
-                <div />
-              </div>
-              <div onClick={(e) => setInput(e.target.innerText)} className={`${Style.card}`}>
-                <p>Briefly summarize this concept: urban planning</p>
-                <i className="fa-regular fa-lightbulb"></i>
-                <div />
-              </div>
-              <div onClick={(e) => setInput(e.target.innerText)} className={`${Style.card}`}>
-                <p>Brainstorm team bonding activities for our work retreat</p>
-                <i className="fa-regular fa-message"></i>
-                <div />
-              </div>
-              <div onClick={(e) => setInput(e.target.innerText)} className={`${Style.card}`}>
-                <p>Tell me about React js and React native</p>
-                <i className="fa-solid fa-code"></i>
-                <div />
-              </div>
-            </div>
+            <Cards setInput={setInput} />
+
           </>
         ) : (
           chatArr.map((chat, index) => (
@@ -68,43 +50,13 @@ export default function Main() {
                   <p dangerouslySetInnerHTML={{ __html: chat.displayText }} />
 
                 }
-                {chat.loading && (
-                  <div className={`${Style.loader}`}>
-                    <hr />
-                    <hr />
-                    <hr />
-                  </div>
-                )}
+                {chat.loading && (<Loader />)}
               </div>
             </div>
           ))
         )}
 
-        <div className={`${Style.mainBottom}`}>
-          <div className={`${Style.searchBox}`}>
-            <input
-              onChange={(e) => setInput(e.target.value)}
-              value={input}
-              type="text"
-              placeholder="Ask anything"
-              onKeyDown={(e) => {e.key === 'Enter' && onSent(input)}}
-            />
-            <div>
-              <i className="fa-solid fa-paperclip"></i>
-              <i className="fa-solid fa-microphone"></i>
-              {input && (
-                <i
-                  onClick={() => onSent(input)}
-                  className="fa-regular fa-paper-plane"
-                ></i>
-              )}
-            </div>
-          </div>
-          <p className={`${Style.bottomInfo}`}>
-            Gemini may display inaccurate info, including about people, so
-            double-check its responses. Your privacy and Gemini Apps
-          </p>
-        </div>
+        <Searchbar onSent={onSent} setInput={setInput} input={input} />
       </div>
     </div>
   );

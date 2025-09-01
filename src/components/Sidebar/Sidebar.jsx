@@ -98,6 +98,18 @@ const Sidebar = () => {
             </motion.p>
           )}
         </div>
+        <div className={`${Style.bottomItem} ${Style.recentEntry}`}>
+          <i className="fa-brands fa-linkedin"></i>
+          {extended && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <a href="https://www.linkedin.com/in/menna-cheetah-fast">Visit my LinkedIn</a>
+            </motion.p>
+          )}
+        </div>
       </div>
     </motion.div>
   );

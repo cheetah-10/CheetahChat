@@ -3,8 +3,9 @@
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #f0f4f9;
     padding: 25px 15px;
+    background-color: #FFBF78;
+    color: #692c03;
 
 }
 
@@ -24,10 +25,9 @@
     align-items: center;
     gap: 10px;
     padding: 10px;
-    background-color: #e5edef;
+    background-color: #FFEEA9;
     border-radius: 50px;
     font-size: 14px;
-    color: gray;
     cursor: pointer;
 }
 
@@ -54,12 +54,12 @@
     padding: 10px;
     padding-right: 40px;
     border-radius: 50px;
-    color: #252525;
+    color: #692c03;
     cursor: pointer;
 }
 
 .sidebar .recentEntry:hover {
-    background-color: #e2e6eb;
+    background-color: #FFEEA9;
 }
 
 .sidebar .bottom {

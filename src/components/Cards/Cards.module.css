@@ -1,0 +1,38 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.cardsParent {
+    margin-bottom: 20px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    background-color: #FFBF78;
+    color: #692c03;
+}
+
+.card i {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.card p {
+    font-size: 17px;
+}
+
+.card:hover {
+    background-color: #FFEEA9;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
